@@ -37,7 +37,7 @@ public class Personalproject {
 		 								   exam = new Exam();
 									 }
 		 							break;
-		 						case 'p':
+		 						case 'c':
 		 							System.out.print("\n\t p [Display the information]");
 		 							exam.printInfo();
 		 							break;
@@ -56,7 +56,7 @@ public class Personalproject {
 		 		System.out.println("Command Options --------------------");
 		 		System.out.println("a: Add a  score");
 		 		System.out.println("b: Create a New exam with a list of integers");
-		 		System.out.println("p: Display the information");
+		 		System.out.println("c: Display the information");
 		 		System.out.println("q: Quit the program");
 		 		System.out.println("?: Display this menu ");
 		 		System.out.println("------------------------------------");
