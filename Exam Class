@@ -1,0 +1,103 @@
+public class Exam {
+
+private int count;
+private int total;
+public String scores;
+
+public Exam()
+{
+	count =0;
+	total =0;
+	scores ="";
+}
+
+public Exam(int countExam, int totalScore, String scoresDisplay)
+{
+	count = countExam;
+	total = totalScore;
+	scores = scoresDisplay+" ";
+}
+
+public int getCount()
+{
+	return count;
+}
+
+private boolean hasScore()
+{
+	if(count!=0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+public double calcAverage()
+{
+	if(hasScore())
+	{
+		return total/count;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+public boolean isValid()
+{
+
+	int spaceNumber =0;
+	int index ;
+	int prevIndex = 0;
+	int totalScore =0;
+	String sub = "";
+
+	for(int i =0; i<scores.length();i++)
+			{
+
+				if (Character.isWhitespace(scores.charAt(i)))
+				{
+
+					index = i;
+					spaceNumber++;
+
+					sub = scores.substring(prevIndex, index);
+
+					totalScore = totalScore + Integer.parseInt(sub);
+
+					prevIndex = index+1;
+				}
+			}
+
+	if(total==totalScore&&count == spaceNumber)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+public void addScore(int score)
+{
+	count = count +1;
+	total = total + score;
+	scores = scores+" "+score;
+}
+
+public void printInfo()
+{
+	System.out.println("");
+	System.out.println("-- Count is "+ count);
+	System.out.printf("-- Average is " + "%.2f",calcAverage());
+	System.out.println("");
+	System.out.println("-- Scores "+ scores);
+
+}
+}
