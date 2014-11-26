@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Personalproject {
+	public static void main(String[] arg){
+
+		 		System.out.println(" ****** Tester Program ******");
+		 		printMenu();
+		 		Scanner in = new Scanner (System.in);
+		        char command;  // command letter
+		         Exam exam = new Exam();
+
+		         do{
+		 					System.out.print("Please input a command:");
+		 					command = in.nextLine().charAt(0);
+		 					switch(command){
+		 						case 'a':
+		 							System.out.print("\n\t a [Input a new score]: ");
+		 							int score=in.nextInt();
+		 						    String linebreak = in.nextLine();
+		 							exam.addScore(score);
+		 							System.out.print("\n\t A new score " +score+ " is added.");
+		 							break;
+		 						case 'b':
+		 							System.out.print("\n\t b [Create a new exam] " );
+		 							System.out.print("\n\t [Input the count of scores]: " );
+		 							int count = in.nextInt();
+		 							System.out.print("\n\t [Input the total of scores]: " );
+		 							int total = in.nextInt();
+		 							in.nextLine();
+		 							System.out.print("\n\t [Input a list of integers in a single line]: " );
+		 							String scores = in.nextLine();
+		 							exam = new Exam(count, total, scores);
+		 							if (exam.isValid())
+		 									System.out.print("\n\t A new Exam is constructed with " +count+", "+ total+", \""+ scores +"\"");
+		 							else{
+		 								   System.out.print("\n\t Inputs are invalid.");
+		 								   exam = new Exam();
+									 }
+		 							break;
+		 						case 'p':
+		 							System.out.print("\n\t p [Display the information]");
+		 							exam.printInfo();
+		 							break;
+		 						case '?': printMenu(); break;
+		 						case 'q': break;
+		 						default: System.out.print("\n\t Invalid: *** Type '?' to get the commands***"); break;
+		 					}
+		 					System.out.println("\n");
+		 		}while(command != 'q');
+		 		 System.out.println(" ****** End of Program ******");
+	} 
+
+
+	public static void printMenu(){
+		 		System.out.println();
+		 		System.out.println("Command Options --------------------");
+		 		System.out.println("a: Add a  score");
+		 		System.out.println("b: Create a New exam with a list of integers");
+		 		System.out.println("p: Display the information");
+		 		System.out.println("q: Quit the program");
+		 		System.out.println("?: Display this menu ");
+		 		System.out.println("------------------------------------");
+	}
+}
