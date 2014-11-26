@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class Personalproject {
 	public static void main(String[] arg){
 
-		 		System.out.println(" ****** Tester Program ******");
+		 		System.out.println(" ****** Exam Program ******");
 		 		printMenu();
 		 		Scanner in = new Scanner (System.in);
-		        char command;  // command letter
+		        char command;  
 		         Exam exam = new Exam();
 
 		         do{
